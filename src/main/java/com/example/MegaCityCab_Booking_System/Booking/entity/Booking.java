@@ -1,4 +1,4 @@
-package com.example.MegaCityCab_Booking_System.model;
+package com.example.MegaCityCab_Booking_System.Booking.entity;
 
 import java.time.LocalDateTime;
 

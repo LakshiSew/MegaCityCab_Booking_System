@@ -1,4 +1,4 @@
-package com.example.MegaCityCab_Booking_System.controller;
+package com.example.MegaCityCab_Booking_System.Booking.controller;
 
 import java.util.List;
 
@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.MegaCityCab_Booking_System.model.Booking;
-import com.example.MegaCityCab_Booking_System.service.BookingService;
-
-
+import com.example.MegaCityCab_Booking_System.Booking.entity.Booking;
+import com.example.MegaCityCab_Booking_System.Booking.service.BookingService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;

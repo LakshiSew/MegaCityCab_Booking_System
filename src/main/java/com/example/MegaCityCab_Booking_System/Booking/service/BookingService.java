@@ -1,10 +1,10 @@
-package com.example.MegaCityCab_Booking_System.service;
+package com.example.MegaCityCab_Booking_System.Booking.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.MegaCityCab_Booking_System.model.Booking;
+import com.example.MegaCityCab_Booking_System.Booking.entity.Booking;
 
 @Service
 public interface BookingService {

@@ -1,4 +1,4 @@
-package com.example.MegaCityCab_Booking_System.model;
+package com.example.MegaCityCab_Booking_System.Customer.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

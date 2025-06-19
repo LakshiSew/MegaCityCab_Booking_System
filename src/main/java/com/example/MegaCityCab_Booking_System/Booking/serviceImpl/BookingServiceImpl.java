@@ -1,13 +1,13 @@
-package com.example.MegaCityCab_Booking_System.serviceImpl;
+package com.example.MegaCityCab_Booking_System.Booking.serviceImpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.MegaCityCab_Booking_System.model.Booking;
-import com.example.MegaCityCab_Booking_System.repository.BookingRepository;
-import com.example.MegaCityCab_Booking_System.service.BookingService;
+import com.example.MegaCityCab_Booking_System.Booking.entity.Booking;
+import com.example.MegaCityCab_Booking_System.Booking.repository.BookingRepository;
+import com.example.MegaCityCab_Booking_System.Booking.service.BookingService;
 
 @Service
 public class BookingServiceImpl implements BookingService {

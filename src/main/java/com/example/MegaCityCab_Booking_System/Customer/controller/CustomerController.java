@@ -1,4 +1,4 @@
-package com.example.MegaCityCab_Booking_System.controller;
+package com.example.MegaCityCab_Booking_System.Customer.controller;
 
 import java.util.List;
 
@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.MegaCityCab_Booking_System.model.Customer;
-import com.example.MegaCityCab_Booking_System.service.CustomerService;
+import com.example.MegaCityCab_Booking_System.Customer.entity.Customer;
+import com.example.MegaCityCab_Booking_System.Customer.service.CustomerService;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
