@@ -30,18 +30,18 @@ public class CustomerController {
 
 // Define methods for customer-related operations here
 
-    @PostMapping("/createCustomer")
+    @PostMapping("/createcustomer")
   public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer){
      Customer savedCustomer = customerService.createCustomer(customer);
      return ResponseEntity.ok(savedCustomer);
   }
     
-@GetMapping("/getAllCustomers")
+@GetMapping("/getallCustomers")
 public List<Customer> getAllCustomers() {
     return customerService.getAllCustomers();
 }
   
-  @PutMapping("UpdateCustomer/{id}")
+  @PutMapping("Updatecustomer/{id}")
     public ResponseEntity<Customer> updateCustomer(@PathVariable String id, @RequestBody Customer customer){
         Customer updateCustomer = customerService.updateCustomer(id, customer);
         if(updateCustomer != null){
@@ -53,13 +53,13 @@ public List<Customer> getAllCustomers() {
 
 
 
-@GetMapping("/getCustomerById/{id}")
+@GetMapping("/getcustomerById/{id}")
 public Customer getCustomerById(@PathVariable String id){
     return customerService.getCustomerById(id);
 }
 
 
-@DeleteMapping("/deleteCustomerById/{id}")
+@DeleteMapping("/deletecustomerById/{id}")
 public ResponseEntity<String> deleteCustomerById(@PathVariable String id){
     boolean isDeleted = customerService.deleteCustomerById(id);
     if(isDeleted){

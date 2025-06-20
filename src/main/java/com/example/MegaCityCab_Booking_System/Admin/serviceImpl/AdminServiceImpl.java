@@ -40,7 +40,7 @@ public List<Admin> getAllAdmins() {
 
     @Override
     public boolean existsByUsername(String username) {
-        return adminRepository.existsByUserName(username);
+        return adminRepository.existsByUsername(username);
     }
     @Override
     public Admin updateAdmin(String id, Admin updatedAdmin) {

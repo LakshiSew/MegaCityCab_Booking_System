@@ -31,18 +31,18 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findById(id).orElse(null);
     }
 
-    @Override
-    public Customer updateCustomer(String id, Customer customer) {
-        Customer existingCustomer = customerRepository.findById(id).orElse(null);
-        if (existingCustomer != null) {
-            existingCustomer.setName(customer.getName());
-            existingCustomer.setEmail(customer.getEmail());
-            existingCustomer.setPhoneNumber(customer.getPhoneNumber());
-            return customerRepository.save(existingCustomer);
-        }
-        return null;
-
+@Override
+public Customer updateCustomer(String id, Customer customer) {
+    Customer existingCustomer = customerRepository.findById(id).orElse(null);
+    if (existingCustomer != null) {
+        existingCustomer.setCustomerName(customer.getCustomerName());
+        existingCustomer.setCustomerEmail(customer.getCustomerEmail());
+        existingCustomer.setCustomerPhone(customer.getCustomerPhone());
+        return customerRepository.save(existingCustomer);
     }
+    return null;
+}
+
 
     @Override
     public boolean deleteCustomerById(String id) {

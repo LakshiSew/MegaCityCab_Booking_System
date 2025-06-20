@@ -11,13 +11,17 @@ import lombok.Setter;
 @Document(collection = "customers")
 public class Customer {
     @Id
-    private String id;
-    private String name;
-    private String email;
-    private String phoneNumber;
-    private String address;
-    private String userId; // Link to the User who is a customer
-    private String profilePictureUrl; // Optional field for profile picture URL
-  
+
+    private String Id;
+
+    private String customerName;
+
+    private String customerEmail;
+
+    private String userName;
+
+    private String password;
+
+    private String customerPhone;
     
 }

@@ -14,6 +14,7 @@ import com.example.MegaCityCab_Booking_System.Admin.service.AdminService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -29,7 +30,7 @@ public class AdminController {
 private AdminService adminService;
 
 
-@PostMapping("/createAdmin")
+@PostMapping("/createadmin")
 public ResponseEntity<String> createAdmin(@RequestBody Admin admin){
     if (adminService.existsByUsername(admin.getUsername())) {
         return ResponseEntity.status(409).body("Username already exists");
@@ -40,18 +41,18 @@ public ResponseEntity<String> createAdmin(@RequestBody Admin admin){
 
 }
 
-@GetMapping("/getAllAdmins")
+@GetMapping("/getAlladmins")
 public List<Admin> getAllAdmins(){
     return adminService.getAllAdmins();
 }
 
-@GetMapping("/getAdminbyid/{id}")
+@GetMapping("/getadminbyid/{id}")
 public Optional<Admin> getAdminById(@PathVariable String id ){
  return adminService.getAdminById(id);
 }
 
 
-@DeleteMapping("/deleteAdminById/{id}")
+@DeleteMapping("/deleteadminById/{id}")
 public ResponseEntity<String> deleteAdminById(@PathVariable String id) {
     if (adminService.getAdminById(id).isPresent()) {
         adminService.deleteAdmin(id);
@@ -62,7 +63,7 @@ public ResponseEntity<String> deleteAdminById(@PathVariable String id) {
 
 }
 
-@PutMapping("path/{id}")
+@PutMapping("updateadmin/{id}")
 public ResponseEntity<Admin> updateAdmin(@PathVariable String id, @RequestBody Admin admin) {
   Admin updatedAdmin = adminService.updateAdmin(id, admin);
     if (updatedAdmin != null) {

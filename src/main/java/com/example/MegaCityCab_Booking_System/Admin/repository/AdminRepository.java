@@ -10,8 +10,10 @@ import com.example.MegaCityCab_Booking_System.Admin.entity.Admin;
 
 @Repository
 public interface AdminRepository extends MongoRepository<Admin, String> {
-        Optional<Admin> findByUserName(String userName);
-    boolean existsByUserName(String userName);
+    Optional<Admin> findByUsername(String username); // OK
+
+    boolean existsByUsername(String username); 
+ 
     
     
 

@@ -15,7 +15,7 @@ public class BookingServiceImpl implements BookingService {
     @Autowired
     private BookingRepository bookingRepository;
 
-    @Override
+    @Override 
     public Booking createBooking(Booking booking){
         return bookingRepository.save(booking);
     }
@@ -33,13 +33,13 @@ public class BookingServiceImpl implements BookingService {
 public Booking updateBooking(String id, Booking booking) {
     Booking existingBooking = bookingRepository.findById(id).orElse(null);
 
-    if (existingBooking != null) {
+    if (existingBooking != null) { 
         existingBooking.setPickupLocation(booking.getPickupLocation());
         existingBooking.setDropoffLocation(booking.getDropoffLocation());
         existingBooking.setBookingTime(booking.getBookingTime());
         existingBooking.setStatus(booking.getStatus());
         existingBooking.setCabId(booking.getCabId());
-        existingBooking.setDriverId(booking.getDriverId());
+        existingBooking.setDriverId(booking.getDriverId());    
         existingBooking.setCustomerId(booking.getCustomerId());
         
         return bookingRepository.save(existingBooking);
