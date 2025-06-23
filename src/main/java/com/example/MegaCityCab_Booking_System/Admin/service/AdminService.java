@@ -16,7 +16,7 @@ public interface AdminService {
     Optional<Admin> getAdminById(String id);
     Admin createAdmin(Admin admin);
     void deleteAdmin(String id);
-    public boolean existsByUsername(String username);
+    public boolean existsByUsername(String userName);
     Admin updateAdmin(String id, Admin admin);
 
 }

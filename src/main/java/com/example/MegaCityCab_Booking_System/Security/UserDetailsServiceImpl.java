@@ -46,10 +46,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                     .build();
         }
 
-        Admin admin = adminRepository.findByUsername(username).orElse(null);
+        Admin admin = adminRepository.findByUserName(username).orElse(null);
         if (admin != null) {
             return org.springframework.security.core.userdetails.User.builder()
-                    .username(admin.getUsername())
+                    .username(admin.getUserName())
                     .password(admin.getPassword())
                     .authorities("ROLE_ADMIN")
                     .build();

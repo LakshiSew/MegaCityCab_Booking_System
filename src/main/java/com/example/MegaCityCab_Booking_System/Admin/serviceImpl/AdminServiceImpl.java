@@ -39,8 +39,8 @@ public List<Admin> getAllAdmins() {
 
 
     @Override
-    public boolean existsByUsername(String username) {
-        return adminRepository.existsByUsername(username);
+    public boolean existsByUsername(String userName) {
+        return adminRepository.existsByUserName(userName);
     }
     @Override
     public Admin updateAdmin(String id, Admin updatedAdmin) {
@@ -50,11 +50,9 @@ public List<Admin> getAllAdmins() {
             Admin existingAdmin = optionalAdmin.get();
 
             // Update fields
-            existingAdmin.setUsername(updatedAdmin.getUsername());
+            existingAdmin.setUserName(updatedAdmin.getUserName());
             existingAdmin.setEmail(updatedAdmin.getEmail());
-            existingAdmin.setPhoneNumber(updatedAdmin.getPhoneNumber());
             existingAdmin.setPassword(updatedAdmin.getPassword()); // Consider encrypting this if necessary
-            existingAdmin.setUserId(updatedAdmin.getUserId());
             existingAdmin.setAdminImage(updatedAdmin.getAdminImage());
 
             // Save updated admin

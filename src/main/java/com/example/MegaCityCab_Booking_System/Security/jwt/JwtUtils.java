@@ -60,7 +60,7 @@ public class JwtUtils {
             userId = cabsRepository.findByUserName(userDetails.getUsername())
                     .map(Cabs::getCabId).orElse(null);
         } else if (role.equals("ROLE_ADMIN")) {
-            userId = adminRepository.findByUsername(userDetails.getUsername())
+            userId = adminRepository.findByUserName(userDetails.getUsername())
                     .map(Admin::getId).orElse(null); // Assuming your Admin entity uses "id"
         }
 

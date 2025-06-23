@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,20 +19,24 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
-
-
-
 @RestController
 @CrossOrigin
 public class CustomerController {
 
+    private final PasswordEncoder passwordEncoder;
+
     @Autowired
     private CustomerService customerService;
 
+    CustomerController(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
 // Define methods for customer-related operations here
 
-    @PostMapping("/createcustomer")
+    @PostMapping("/auth/createcustomer")
   public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer){
+     customer.setPassword(passwordEncoder.encode(customer.getPassword()));
      Customer savedCustomer = customerService.createCustomer(customer);
      return ResponseEntity.ok(savedCustomer);
   }
