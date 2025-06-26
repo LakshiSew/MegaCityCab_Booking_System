@@ -86,13 +86,27 @@ public ResponseEntity<?> createAdmin(
         }
     }
 
-    @PutMapping("updateadmin/{id}")
-    public ResponseEntity<Admin> updateAdmin(@PathVariable String id, @RequestBody Admin admin) {
-        Admin updatedAdmin = adminService.updateAdmin(id, admin);
-        if (updatedAdmin != null) {
+ @PutMapping("/updateadmin/{id}")
+    public ResponseEntity<?> updateAdmin(
+            @PathVariable String id,
+            @RequestParam("userName") String userName,
+            @RequestParam("email") String email,
+            @RequestParam(value = "password", required = false) String password,
+            @RequestParam(value = "adminImage", required = false) MultipartFile adminImage
+    ) throws IOException {
+        try {
+            String adminImageUrl = adminImage != null ? cloudinaryService.uploadImage(adminImage) : null;
+
+            Admin admin = new Admin();
+            admin.setUserName(userName);
+            admin.setEmail(email);
+            admin.setPassword(password != null && !password.isEmpty() ? passwordEncoder.encode(password) : null);
+            admin.setAdminImage(adminImageUrl);
+
+            Admin updatedAdmin = adminService.updateAdmin(id, admin);
             return ResponseEntity.ok(updatedAdmin);
-        } else {
-            return ResponseEntity.status(404).body(null);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(404).body(e.getMessage());
         }
     }
 }
